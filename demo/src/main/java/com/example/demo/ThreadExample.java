@@ -2,11 +2,23 @@ package com.example.demo;
 
 public class ThreadExample {
 	public static void main(String[] args) {
-		new MyRunnable(); // NewThread 객체 생성 및 스레드 시작
+		MyRunnable myRunnable = new MyRunnable(); // NewThread 객체 생성 및 스레드 시작
 
+		try {
+			myRunnable.t.join(); // 자식 스레드가 종료될 때까지 기다림
+			
+			/* 메인 스레드가 마지막에 종료되어야 되는 경우가 많기 때문에
+			   join을 이용해서 자식 스레드를 기다려준다
+			*/
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted.");
+        }
+		
 		// 메인 스레드의 작업
+		Thread t = Thread.currentThread();
 		for (int i = 0; i < 5; i++) {
-			System.out.println("Main Thread: " + i);
+			
+			System.out.println(t.getName()+": " + i);
 			try {
 				Thread.sleep(1000); // 1초 대기
 			} catch (InterruptedException e) {

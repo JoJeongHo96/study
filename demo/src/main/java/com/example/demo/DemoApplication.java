@@ -1,15 +1,24 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("1");
-		System.out.println("2");
+	public static void main(String[] args) throws Exception {
+//		SpringApplication.run(DemoApplication.class, args);
+
+		try {
+			throw new NullPointerException("dd");
+		}
+//		catch(Exception e) {
+		catch (Throwable e) {
+			e.printStackTrace();
+		}
 	}
 
 }

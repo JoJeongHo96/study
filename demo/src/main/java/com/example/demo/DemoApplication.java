@@ -46,7 +46,7 @@ public class DemoApplication {
 	}
 
 	static void Mymethod (String a) {
-		a="b";
+		a="b";//
 	}
 }
 
